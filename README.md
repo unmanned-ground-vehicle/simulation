@@ -56,11 +56,11 @@ Edit This Tag
 in launch file
 
 ## Adding textures
-Copy grass2.png to 
+Copy src/mybot_gazebo/grass2.png to 
 ```
 /usr/share/gazebo-9/media/materials/textures
 ```
 TO copy use
 ```
-$sudo cp grass2.png /usr/share/gazebo-9/media/materials/textures
+$sudo cp src/mybot_gazebo/grass2.png /usr/share/gazebo-9/media/materials/textures
 ```

@@ -6,9 +6,9 @@
   <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.1"/>
 
-  <xacro:include filename="$(find ugv_description)/urdf/mybot.gazebo" />
-  <xacro:include filename="$(find ugv_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find ugv_description)/urdf/macros.xacro" />
+  <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo" />
+  <xacro:include filename="$(find mybot_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find mybot_description)/urdf/macros.xacro" />
 
 
   <link name='chassis'>
@@ -188,15 +188,15 @@
     <child link="camera_stick"/>
   </joint>
 
-  <joint name="hokuyo_joint" type="fixed">
+  <joint name="laser_joint" type="fixed">
     <axis xyz="0 0 0" />
     <origin xyz=".45 0 .2" rpy="0 0 0"/>
     <parent link="chassis"/>
-    <child link="hokuyo"/>
+    <child link="laser"/>
   </joint>
 
   <!-- Hokuyo Laser -->
-  <link name="hokuyo">
+  <link name="laser">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -207,7 +207,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ugv_description/meshes/hokuyo.dae"/>
+        <mesh filename="package://mybot_description/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
 

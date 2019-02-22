@@ -64,3 +64,9 @@ TO copy use
 ```
 $sudo cp src/mybot_gazebo/grass2.png /usr/share/gazebo-9/media/materials/textures
 ```
+# model files
+copy and paste files in models folder into usr/share/gazebo-9/models folder 
+```/
+$ sudo cp -r * usr/share/gazebo-9/models/
+```
+

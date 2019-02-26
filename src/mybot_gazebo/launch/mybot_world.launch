@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-    <param name="robot_description" value="$(find mybot_description)/urdf/mybot.xacro"/>
-  </node> 
+  <!--env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find models)"/-->
 
-  <arg name="world" default="empty"/> 
+  <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    <param name="robot_description" value="$(find mybot_description)/urdf/mybot.xacro"/>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node-->
+
+  <arg name="world" default="empty"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
+  <arg name="gui" default="true "/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
+
+  <!--node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model mybot" /-->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model mybot" />
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <!--arg name="world_name" value="$(find mybot_gazebo)/worlds/mybot.world"/-->
     <arg name="world_name" value="$(find mybot_gazebo)/worlds/igvc_track.world"/>
@@ -21,10 +30,20 @@
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
-  
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
 
-  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-   args="-urdf -param robot_description -model mybot" />
+  <rosparam file="$(find mybot_control)/config/mybot_control.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/mybot" args="joint_state_controller
+      mobile_base_controller" />
+  <!-- load the controllers -->
+  <!--node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/mybot" args="joint_state_controller
+      mobile_base_controller" /-->
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" respawn="false" output="screen">
+    <!--param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/-->
+    <remap from="/joint_states" to="/mybot/joint_states" />
+  </node>
+  <!--param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/-->
+
 
 </launch>

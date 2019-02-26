@@ -84,7 +84,7 @@ class KeyTeleop():
 
     def __init__(self, interface):
         self._interface = interface
-        self._pub_cmd = rospy.Publisher('key_vel', Twist)
+        self._pub_cmd = rospy.Publisher('cmd_vel', Twist)
 
         self._hz = rospy.get_param('~hz', 10)
 
@@ -178,7 +178,7 @@ class KeyTeleop():
 class SimpleKeyTeleop():
     def __init__(self, interface):
         self._interface = interface
-        self._pub_cmd = rospy.Publisher('key_vel', Twist)
+        self._pub_cmd = rospy.Publisher('cmd_vel', Twist)
 
         self._hz = rospy.get_param('~hz', 10)
 

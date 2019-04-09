@@ -62,7 +62,7 @@
         <gravity>1</gravity>
       </link>
     </model-->
-
+    
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -75,16 +75,16 @@
       <shadows>1</shadows>
     </scene>
     
-    <include>
+    <!--include>
       <uri>model://grass_igvc_lines</uri>
       <name>grass_igvc_lines</name>
       <pose>14.1106 -0.146449 0 0 -0 0</pose>
-    </include>
-      <!--include>
+    </include-->
+      <include>
       <uri>model://grass</uri>
       <name>grass_igvc_lines</name>
       <pose>14.1106 -0.146449 0 0 -0 0</pose>
-    </include-->
+    </include>
     
    
     <model name='Construction Barrel'>

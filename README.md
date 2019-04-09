@@ -22,6 +22,14 @@ $ catkin_create_pkg mybot_gazebo
 ```
 Copy contents of respective folder from repository to these new folders.
 
+Important
+Add following line to ugvsim/devel/setup.sh   :
+```
+export GAZEBO_MODEL_PATH=/home/sahil/ugvsim_ws/src/models
+```
+(PATH of models folder as in your computer)
+
+
 ## Launching simulation
 ```
 $ source ~/ugvsim/devel/setup.sh

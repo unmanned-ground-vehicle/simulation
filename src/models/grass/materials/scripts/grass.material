@@ -5,7 +5,7 @@ material igvc/grass
 	{
 		pass
 		{
-			ambient 0.8 1.0 0.8 1.0
+			ambient 1.0 0.2 1.0 1.0
 			diffuse 0.8 1.0 0.8 1.0
 			specular 0.1 0.1 0.1 1.0 12.5
 

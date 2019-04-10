@@ -17,9 +17,9 @@
     <arg name="headless" value="$(arg headless)"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
-  <!--
+  
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.urdf.xacro'"/>
-  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model mybot" />
+  <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model mybot -x -5 -y -37" />
 
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
@@ -28,5 +28,5 @@
   <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
--->
+
 </launch>

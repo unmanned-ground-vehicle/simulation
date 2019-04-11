@@ -35,5 +35,12 @@
   	<param name="base_frame" value="chassis"></param>
   </node>
   
-
+  <!--Run AMCL-->
+  <node pkg="amcl" type="amcl" name="amcl">
+  	<remap from="scan" to="/mybot/laser/scan"></remap>
+  	<param name="use_map_topic" value="true"></param>
+  	<param name="base_frame_id" value="chassis"></param>
+  	<param name="initial_pose_x" value="-5"></param>
+  	<param name="initial_pose_y" value="-37"></param>
+  </node>
 </launch>

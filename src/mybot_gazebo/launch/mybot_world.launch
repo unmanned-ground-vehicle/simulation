@@ -28,5 +28,12 @@
   <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
+  
+  <!--Run gmapping-->
+  <node pkg="gmapping" type="slam_gmapping" name="slam">
+  	<remap from="scan" to="/mybot/laser/scan"></remap>
+  	<param name="base_frame" value="chassis"></param>
+  </node>
+  
 
 </launch>

@@ -13,6 +13,9 @@
   <xacro:include filename="$(find mybot_description)/urdf/gps.urdf.xacro" />
   <xacro:gps parent="chassis"></xacro:gps>
 
+  <link name="dummy">
+  </link>
+
   <link name='chassis'>
     <pose>0 0 0.5 0 0 0</pose>
 
@@ -84,6 +87,10 @@
     </visual-->
   </link>
 
+  <joint name="dummy_joint" type="fixed">
+  	<parent link="dummy"/>
+  	<child link="chassis"/>
+  </joint>
 
   <link name="left_wheel">
     <!--origin xyz="0.1 0.13 0.1" rpy="0 1.5707 1.5707"/-->

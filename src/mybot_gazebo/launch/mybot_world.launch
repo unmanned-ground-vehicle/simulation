@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
+  <param name="/use_sim_time" value="true"/>
+  
   <arg name="world" default="empty"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -42,5 +44,10 @@
   	<param name="base_frame_id" value="chassis"></param>
   	<param name="initial_pose_x" value="-5"></param>
   	<param name="initial_pose_y" value="-37"></param>
+  </node>
+   
+  <!--Run costmap node--> 
+  <node pkg="costmap_2d" type="costmap_2d_node" name="costmap_node">
+  	<rosparam file="$(find mybot_gazebo)/costmap_params.yaml" command="load" ns="costmap"></rosparam>
   </node>
 </launch>

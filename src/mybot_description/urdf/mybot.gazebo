@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot>
 
-  <!--gazebo reference="left_wheel_hinge">
+  <gazebo reference="left_wheel_hinge">
       <mu1 value="10000.0" />
       <mu2 value="10000.0" />
       <kp value="100000.0" />
@@ -16,7 +16,7 @@
       <kd value="0.00001" />
       <maxVel value="1.0" />
       <minDepth value="0.0001" />
-  </gazebo-->
+  </gazebo>
 
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -27,14 +27,14 @@
       <rightJoint>right_wheel_hinge</rightJoint>
       <wheelSeparation>0.7</wheelSeparation>
       <wheelDiameter>0.3</wheelDiameter>
-      <wheelTorque>500</wheelTorque>
-      <wheelAcceleration>1.0</wheelAcceleration>
-      <torque>500</torque>
+      <wheelTorque>20.0</wheelTorque>
+      <wheelAcceleration>100.0</wheelAcceleration>
+      <torque>20.0</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
-      <publishWheelTF>false</publishWheelTF>
+      <publishWheelTF>true</publishWheelTF>
       <publishOdomTF>true</publishOdomTF>
     </plugin>
   </gazebo>

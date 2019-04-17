@@ -99,6 +99,14 @@
       <geometry>
         <cylinder radius="0.15" length="0.08"/>
       </geometry>
+ <surface>
+        <friction>
+          <ode>
+            <mu>10.0</mu>
+            <mu2>10.0</mu2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="left_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
@@ -120,6 +128,14 @@
       <geometry>
         <cylinder radius="0.15" length="0.08"/>
       </geometry>
+            <surface>
+        <friction>
+          <ode>
+            <mu>10.0</mu>
+            <mu2>10.0</mu2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="right_wheel_visual">
       <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>

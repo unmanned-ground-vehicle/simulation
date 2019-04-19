@@ -11,12 +11,12 @@
   <xacro:include filename="$(find mybot_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find mybot_description)/urdf/macros.xacro" />
   <xacro:include filename="$(find mybot_description)/urdf/gps.urdf.xacro" />
-  <xacro:gps parent="chassis"></xacro:gps>
+  <xacro:gps parent="base_link"></xacro:gps>
 
   <link name="dummy">
   </link>
 
-  <link name='chassis'>
+  <link name='base_link'>
     <pose>0 0 0.5 0 0 0</pose>
 
     <inertial>
@@ -31,7 +31,7 @@
       </geometry>
     </collision>
 
-    <visual name='chassis_visual'>
+    <visual name='base_link_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
         <box size=".9 .6 .4"/>
@@ -89,7 +89,7 @@
 
   <joint name="dummy_joint" type="fixed">
   	<parent link="dummy"/>
-  	<child link="chassis"/>
+  	<child link="base_link"/>
   </joint>
 
   <link name="left_wheel">
@@ -155,7 +155,7 @@
     <origin xyz="0.3 0.35 -0.15" rpy="0 0 0"/>
     <!--origin xyz="0.1 0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="left_wheel"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <joint_properties damping="1.0" friction="1000"/>
@@ -165,7 +165,7 @@
     <origin xyz="0.3 -0.35 -0.15" rpy="0 0 0"/>
     <!--origin xyz="0.1 -0.13 0" rpy="0 1.5707 1.5707"/-->
     <child link="right_wheel"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
     <limit effort="10000" velocity="1000"/>
     <joint_properties damping="1.0" friction="1000"/>
@@ -230,14 +230,14 @@
   <joint name="camera_stick_joint" type="fixed">
     <axis xyz="0 0 0" />
     <origin xyz="0.2 0 0.786" rpy="0 0 0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="camera_stick"/>
   </joint>
 
   <joint name="laser_joint" type="fixed">
     <axis xyz="0 0 0" />
     <origin xyz=".45 0 .25" rpy="0 0 0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="laser"/>
   </joint>
 

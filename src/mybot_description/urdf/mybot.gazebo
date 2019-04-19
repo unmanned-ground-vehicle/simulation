@@ -33,14 +33,14 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>chassis</robotBaseFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
       <publishOdomTF>true</publishOdomTF>
     </plugin>
   </gazebo>
 
 
-  <gazebo reference="chassis">
+  <gazebo reference="base_link">
     <material>Gazebo/Orange</material>
   </gazebo>
 

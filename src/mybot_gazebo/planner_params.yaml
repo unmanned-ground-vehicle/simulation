@@ -1,0 +1,14 @@
+robot_base_frame: base_link
+allow_unknown: true
+default_tolerance: 0.5
+visualize_potential: true
+use_dijkstra: false
+use_quadratic: false
+use_grid_path: true
+
+lethal_cost: 250
+neutral_cost: 50
+
+publish_potential: true
+
+use_sim_time: true
